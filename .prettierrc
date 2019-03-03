@@ -1,12 +1,11 @@
 {
-    "extends": "react-app",
-    "useTabs": false,    
+    "useTabs": true,    
     "printWidth": 80,  
     "tabWidth": 4,     
-    "singleQuote": false,  
+    "singleQuote": true,  
     "trailingComma": "none",
     "jsxBracketSameLine": false,
-    "parser": "babylon",
+    "parser": "flow",
     "noSemi": true,
     "rcVerbose": true
 }

@@ -1,0 +1,87 @@
+.wrapper{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #a5c6d7;
+}
+
+.content {
+    margin: 0;
+    padding: 25px 50px 25px 50px;
+    color: #1b375e;
+}
+
+.header {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 33px;
+    font-weight: 700;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav__item {
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.calendar {
+    border: 1px solid black;
+    grid-area: cd;
+    background-color: #fff;
+    display: grid;
+    grid-template-areas: 
+        "... cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg"
+        "cdt cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg";
+}
+
+.calendar__time {
+    grid-area: cdt;
+    display: flex;
+    flex-direction: column;
+    min-width: 30px;
+}
+
+.calendar__time-item {
+    height: 51px;
+    text-align: right;
+}
+
+.calendar__time-item-text {
+    right: 2px;
+    font-size: 10px;
+    position: relative;
+    top: -10px;
+}
+
+.calendar__grid {
+    grid-area: cdg;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.calendar__grid-column {
+    border-left: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.calendar__grid-title {
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.calendar__grid-item {
+    border-top: 1px solid black;
+    height: 50px;
+}
