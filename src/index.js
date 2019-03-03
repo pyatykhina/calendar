@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Diary from './components/Diary';
+import Router from './components/Router';
 
-ReactDOM.render(<Diary />, document.getElementById('root'));
+ReactDOM.render(
+    <Router />,
+    document.getElementById('root')
+);
