@@ -1,7 +1,5 @@
 .calendar {
-    border: 1px solid black;
     grid-area: cd;
-    background-color: #fff;
     display: grid;
     grid-template-areas: 
         "... cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg"
@@ -34,7 +32,7 @@
 }
 
 .calendar__grid-column {
-    border-left: 1px solid black;
+    border-left: 1px solid #1b375e;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,6 +45,6 @@
 }
 
 .calendar__grid-item {
-    border-top: 1px solid black;
+    border-top: 1px solid #1b375e;
     height: 50px;
 }

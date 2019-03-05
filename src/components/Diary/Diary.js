@@ -4,7 +4,7 @@ import './Diary.css';
 class Diary extends Component {
     render() {
         return (
-            <div className='calendar'>
+            <div className='calendar main-content'>
                 <div className='calendar__time'>
                     <div className='calendar__time-item'><span className='calendar__time-item-text'>12 AM</span></div>
                     <div className='calendar__time-item'><span className='calendar__time-item-text'>1 AM</span></div>
