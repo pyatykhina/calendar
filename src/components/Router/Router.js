@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './Router.css';
+import './Router.scss';
 import Main from '../Main';
 import Diary from '../Diary';
 import Chat from '../Chat';
