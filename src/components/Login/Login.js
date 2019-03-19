@@ -50,8 +50,9 @@ class Login extends Component {
                                 <div className='login__form-title-slash'>/</div>
                                 <button className='login__form-title-item' onClick={this.toggleModeReg}>Registration</button>
                             </div>
-                            <div className='login__form-main login__form-authorization'>
+                            <form action='/login' method="POST" className='login__form-main login__form-authorization'>
                                 <input 
+                                    name='email'
                                     type='text' 
                                     className='login__form-item' 
                                     value={this.state.email} 
@@ -59,6 +60,7 @@ class Login extends Component {
                                     placeholder='Email' 
                                 />
                                 <input 
+                                    name='password'
                                     type='password' 
                                     className='login__form-item' 
                                     value={this.state.password} 
@@ -70,7 +72,7 @@ class Login extends Component {
                                     className='login__form-button' 
                                     value='Log in' 
                                 />
-                            </div>
+                            </form>
                         </div>
                     </div>
                 ) : ( 
@@ -81,8 +83,9 @@ class Login extends Component {
                                 <div className='login__form-title-slash'>/</div>
                                 <button className='login__form-title-item login__form-title-item-active' onClick={this.toggleModeReg}>Registration</button>
                             </div>
-                            <div className='login__form-main login__form-registration'>
+                            <form action='/login' method="POST" className='login__form-main login__form-registration'>
                                 <input 
+                                    name='name'
                                     type='text' 
                                     className='login__form-item' 
                                     value={this.state.name} 
@@ -90,6 +93,7 @@ class Login extends Component {
                                     placeholder='Name' 
                                 />
                                 <input 
+                                    name='email'
                                     type='text' 
                                     className='login__form-item' 
                                     value={this.state.email} 
@@ -97,6 +101,7 @@ class Login extends Component {
                                     placeholder='Email' 
                                 />
                                 <input 
+                                    name='password'
                                     type='password' 
                                     className='login__form-item' 
                                     value={this.state.password} 
@@ -108,7 +113,7 @@ class Login extends Component {
                                     className='login__form-button' 
                                     value='Register' 
                                 />
-                            </div>
+                            </form>
                         </div>
                     </div> 
                 )

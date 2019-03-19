@@ -3,14 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-hot-loader": "^4.8.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "PORT=3001 nodemon server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
