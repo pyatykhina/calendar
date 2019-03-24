@@ -1,5 +1,5 @@
 .login {
-    min-height: 700px;
+    min-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +12,11 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .login__form-title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .login__form-title-item {
@@ -39,9 +40,14 @@
     color: #a5c6d7;
 }
 
+.login__msg {
+    margin-bottom: 10px;
+}
+
 .login__form-main {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+    width: 100%;
 }
 
 .login__form-item {

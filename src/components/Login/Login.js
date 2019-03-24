@@ -6,7 +6,8 @@ class Login extends Component {
         mode: 'authorization',
         name: '',
         email: '',
-        password: ''
+        password: '',
+        message: ''
     };
 
     toggleModeAuth = () => {
@@ -50,7 +51,8 @@ class Login extends Component {
                                 <div className='login__form-title-slash'>/</div>
                                 <button className='login__form-title-item' onClick={this.toggleModeReg}>Registration</button>
                             </div>
-                            <form action='/login' method="POST" className='login__form-main login__form-authorization'>
+                            <div className='login__msg'>{new URLSearchParams(this.props.location.search).get('msg')}</div>
+                            <form action='/api/auth' method="POST" className='login__form-main login__form-authorization'>
                                 <input 
                                     name='email'
                                     type='text' 
@@ -83,7 +85,8 @@ class Login extends Component {
                                 <div className='login__form-title-slash'>/</div>
                                 <button className='login__form-title-item login__form-title-item-active' onClick={this.toggleModeReg}>Registration</button>
                             </div>
-                            <form action='/login' method="POST" className='login__form-main login__form-registration'>
+                            <div className='login__msg'>{new URLSearchParams(this.props.location.search).get('msg')}</div>
+                            <form action='/api/reg' method="POST" className='login__form-main login__form-registration'>
                                 <input 
                                     name='name'
                                     type='text' 
