@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import { Redirect } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends Component {
@@ -6,7 +7,8 @@ class Login extends Component {
         mode: 'authorization',
         name: '',
         email: '',
-        password: ''
+        password: '',
+        isAuthorized: ''
     };
 
     toggleModeAuth = () => {
@@ -39,7 +41,25 @@ class Login extends Component {
         });
     };
 
-    render() {
+    loadData() {
+        return JSON.parse(window.localStorage.getItem('userID'));
+    }
+
+    componentDidMount() {
+        if (this.loadData()) {
+            fetch('/api/isAuthorized', { method: 'POST' })
+                .then( response => {
+                    if (response.status === 200) {
+                        this.setState({ isAuthorized: true });
+                    } else {
+                        this.setState({ isAuthorized: false });
+                    }
+                })
+                .catch(e => console.log(e));
+        }
+    }
+
+    renderForm() {
         return (
             this.state.mode === 'authorization'
                 ? ( 
@@ -134,6 +154,19 @@ class Login extends Component {
                     </div>
                 )
         );
+    }
+
+    render() {
+        const { isAuthorized } = this.state;
+        
+        return (
+            isAuthorized 
+                ? (
+                    <Redirect to='/main' />
+                ) : (
+                    <div>{this.renderForm()}</div>
+                )
+        )
     }
 }
 

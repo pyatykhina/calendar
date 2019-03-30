@@ -31,7 +31,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, '../build')));
 
 const isAuthorized = (req, res, next) => {
-    if (!req.session.isAuthorized) {
+    if (req.session.isAuthorized) {
         return next();
     }
     res.redirect('/');

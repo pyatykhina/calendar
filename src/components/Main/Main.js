@@ -7,6 +7,16 @@ import diaryIcon from '../../images/diary.svg';
 import chatIcon from '../../images/chat.svg';
 
 class Main extends Component {
+    saveData = (data) => {
+        window.localStorage.setItem('userID', JSON.stringify(data));
+    }
+
+    componentDidMount() {
+        if (new URLSearchParams(this.props.location.search).get('userID')) {
+            this.saveData(new URLSearchParams(this.props.location.search).get('userID'));
+        } 
+    }
+
     render() {
         return (
             <div className='wrapper'> 
