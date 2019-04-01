@@ -16,7 +16,7 @@ module.exports.isAuthorized = function (req, res, next) {
 
 module.exports.isAuth = function (req, res, next) {
     if (!req.body.email || !req.body.password) {
-        return res.redirect('/?msg=Fill in all the fields&isAuthorized=false');
+        return res.redirect('/?msg=Fill in all the fields');
     }
 
     const Model = mongoose.model('user');
@@ -25,21 +25,21 @@ module.exports.isAuth = function (req, res, next) {
         .findOne({ email: req.body.email })
         .then(user => {
             if (!user) {
-                res.redirect('/?msg=User not found&isAuthorized=false');
+                res.redirect('/?msg=User not found');
             }
             if (!user.validPassword(req.body.password)) {
-                res.redirect('/?msg=Invalid password&isAuthorized=false');
+                res.redirect('/?msg=Invalid password');
             } 
             req.session.isAuthorized = true;
-            res.redirect(`/main?msg=Authorized&userID=${user.id}`); 
+            res.redirect(`/main?msg=Authorized&userID=${user.id}&username=${user.name}`); 
         }).catch(e => {
-            res.redirect('/?msg=Something went wrong. Refresh the page and try again.&isAuthorized=false');
+            res.redirect('/?msg=Something went wrong. Refresh the page and try again');
         });
 } 
 
 module.exports.isReg = function (req, res) {
     if (!req.body.name || !req.body.email || !req.body.password) {
-        return res.redirect('/?msg=Fill in all the fields&isAuthorized=false');
+        return res.redirect('/?msg=Fill in all the fields');
     }
 
     const Model = mongoose.model('user');
@@ -48,7 +48,7 @@ module.exports.isReg = function (req, res) {
         .findOne({ email: req.body.email })
         .then(user => {
             if (user) {
-                res.redirect('/?msg=User is already registered&isAuthorized=false');
+                res.redirect('/?msg=User is already registered');
             }
         })
 
@@ -63,9 +63,17 @@ module.exports.isReg = function (req, res) {
         .save()
         .then(user => { 
             req.session.isAuthorized = true;
-            res.redirect(`/main?msg=You have registered successfully&userID=${user.id}`); 
+            res.redirect(`/main?msg=You have registered successfully&userID=${user.id}&username=${user.name}`); 
         })
         .catch(err => {
-            res.redirect('/?msg=Something went wrong. Refresh the page and try again.&isAuthorized=false');
+            res.redirect('/?msg=Something went wrong. Refresh the page and try again');
         });
+} 
+
+module.exports.isLogout = function (req, res) {
+    console.log('logout', req.session);
+    // req.logout();
+    req.session.destroy(() => {
+        res.redirect('/');
+    });
 } 

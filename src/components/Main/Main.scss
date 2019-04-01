@@ -1,4 +1,12 @@
-.main__msg {
-    font-weight: 500;
-    font-size: 25px;
+.header__user {
+    font-size: 20px;
+    font-weight: 400;    
+    margin-right: 20px;
+}
+
+.nav__item-logout {
+    margin-right: -5px;
+    border: none;
+    background-color: transparent;
+    outline: none;
 }

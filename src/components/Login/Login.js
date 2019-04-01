@@ -41,12 +41,12 @@ class Login extends Component {
         });
     };
 
-    loadData() {
-        return JSON.parse(window.localStorage.getItem('userID'));
+    loadData(key) {
+        return JSON.parse(window.localStorage.getItem(key));
     }
 
     componentDidMount() {
-        if (this.loadData()) {
+        if (this.loadData('userID')) {
             fetch('/api/isAuthorized', { method: 'POST' })
                 .then( response => {
                     if (response.status === 200) {
