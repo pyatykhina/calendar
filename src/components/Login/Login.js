@@ -55,7 +55,6 @@ class Login extends Component {
                         this.setState({ isAuthorized: false });
                     }
                 })
-                .catch(e => console.log(e));
         }
     }
 

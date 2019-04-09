@@ -72,7 +72,6 @@ module.exports.isReg = function (req, res) {
 
 module.exports.isLogout = function (req, res) {
     console.log('logout', req.session);
-    // req.logout();
     req.session.destroy(() => {
         res.redirect('/');
     });

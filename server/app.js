@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 require('./database/models/db');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev')); 
 app.use(cors());
