@@ -1,56 +1,47 @@
-.login {
-    min-height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login__form {
-    padding: 70px;
+.mainModal {
     border: 1px solid #1b375e;
-    border-radius: 15px;
     background-color: #fff;
+    border-radius: 15px;
+    color: #1b375e;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login__form-title {
-    margin-bottom: 10px;
+.mainModal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 30px;
 }
 
-.login__form-title-item {
-    display: inline-block;
-    font-size: 30px;
+.mainModal__header-title {
     font-weight: 500;
-    color: #cbe0ea;
-    cursor: pointer;
+    margin-right: 50px;
+}
+
+.mainModal__header-close {
     border: none;
     outline: none;
-}
-
-.login__form-title-item-active {
     color: #1b375e;
+    font-size: 35px;
 }
 
-.login__form-title-slash {
-    display: inline-block;
-    font-size: 30px;
-    font-weight: 500;
-    color: #cbe0ea;
-}
-
-.login__msg {
+.mainModal__msg {
     margin-bottom: 10px;
 }
 
-.login__form-main {
+.mainModal__form {
     display: flex;
     flex-direction: column;   
     width: 100%;
 }
 
-.login__form-item {
+.mainModal__form-item{
     border: 1px solid #1b375e;
     color: #1b375e;
     border-radius: 7px;
@@ -60,7 +51,12 @@
     margin-bottom: 10px;
 }
 
-.login__form-button {
+.mainModal__form-item-textarea {
+    height: 100px;
+    resize: none;
+}
+
+.mainModal__form-button {
     padding: 10px;
     margin-left: auto;
     color: #1b375e;

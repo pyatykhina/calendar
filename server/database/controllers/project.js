@@ -8,21 +8,16 @@ module.exports.getProjects = (req, res) => {
     });
 };
 
-module.exports.createProject = function (req, res, next) {
+module.exports.createProject = function (req, res) {
     const Model = mongoose.model('project');
 
     let project = new Model({
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
+        members: [req.body.userID]
     });
 
     project.setColor();
-
-    project.addMember(req.body.email);
-
-    if (project.addMember(req.body.email) === 'User not found') {
-        res.redirect('/main?modal-msg=User not found');
-    };
 
     project
         .save()
@@ -33,3 +28,26 @@ module.exports.createProject = function (req, res, next) {
             res.redirect('/main?modal-msg=Something went wrong. Refresh the page and try again'); 
         });
 } 
+
+module.exports.addMember = function(req, res) {
+    const Model = mongoose.model('project');
+    const User = mongoose.model('user');
+
+    User
+        .findOne({ email: req.body.email }) 
+        .then(user => {
+            if (!user) {
+                res.redirect('/main?proj-msg=User not found')
+            } else {
+                Model
+                    .findOne({ _id: req.body.projectID })
+                    .update(
+                        { _id: req.body.projectID },
+                        { $push: { members: user.id } }
+                    )
+                    .then(project => {
+                        res.redirect('/main')
+                    })
+            }
+        })
+}

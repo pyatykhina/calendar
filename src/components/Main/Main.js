@@ -107,6 +107,36 @@ class Main extends Component {
                                 <li className='main__projects-item' style={{ backgroundColor: project.color }}>
                                     <div className='main__projects-name'>{project.name}</div>
                                     <div className='main__projects-description'>{project.description}</div>
+                                    <div className='main__projects-main'>
+                                        <div className='main__projects-subtitle'>Members: </div>
+                                        {/* <ul className='main__projects-members'>
+                                            {project.members.map(member => (
+                                                <li className='main__projects-members-item'>
+                                                    <div className='main__projects-members-name'>{member.name}</div>
+                                                </li>
+                                            ))}
+                                        </ul>*/}
+                                        <div className='main__projects-subtitle'>Add a member: </div>
+                                        <div className='main__projects-msg'>{new URLSearchParams(this.props.location.search).get('proj-msg')}</div>
+                                        <form action='/api/addMember' method='POST' className='main__projects-form'>
+                                            <input 
+                                                name='email'
+                                                type='text' 
+                                                className='main__projects-form-item' 
+                                                placeholder='Email' 
+                                            />
+                                            <input 
+                                                name='projectID'
+                                                style={{ display: 'none' }}
+                                                value={project._id}
+                                            />
+                                            <input 
+                                                type='submit' 
+                                                className='main__projects-form-button' 
+                                                value='Add' 
+                                            />
+                                        </form>
+                                    </div>
                                 </li>
                             ))}
                         </ul>
@@ -125,6 +155,11 @@ class Main extends Component {
                             </div>
                             <div className='mainModal__msg'>{new URLSearchParams(this.props.location.search).get('modal-msg')}</div>
                             <form action='/api/createProject' method='POST' className='mainModal__form'>
+                                <input 
+                                    name='userID'
+                                    style={{ display: 'none' }}
+                                    value={this.loadData('userID')}
+                                />
                                 <input 
                                     name='name'
                                     type='text' 

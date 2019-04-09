@@ -32,18 +32,4 @@ projectSchema.methods.setColor = function () {
     this.color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
 
-projectSchema.methods.addMember = function(email) {
-    const Model = mongoose.model('user');
-
-    Model
-        .findOne({ email: email })
-        .then(user => {
-            if (user) {
-                this.members.push(user.id);
-            } else {
-                return ('User not found');
-            }
-        })
-}
-
 mongoose.model('project', projectSchema); 

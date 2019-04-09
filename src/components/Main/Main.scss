@@ -1,3 +1,6 @@
+@import url("./mainModal.scss");
+@import url("./project.scss");
+
 .header__user {
     font-size: 20px;
     font-weight: 400;    
@@ -21,112 +24,4 @@
     border: none;
     background-color: transparent;
     outline: none;
-}
-
-.mainModal {
-    border: 1px solid #1b375e;
-    background-color: #fff;
-    border-radius: 15px;
-    color: #1b375e;
-    margin: auto;
-    box-sizing: border-box;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mainModal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 30px;
-}
-
-.mainModal__header-title {
-    font-weight: 500;
-    margin-right: 50px;
-}
-
-.mainModal__header-close {
-    border: none;
-    outline: none;
-    color: #1b375e;
-    font-size: 35px;
-}
-
-.mainModal__msg {
-    margin-bottom: 10px;
-}
-
-.mainModal__form {
-    display: flex;
-    flex-direction: column;   
-    width: 100%;
-}
-
-.mainModal__form-item{
-    border: 1px solid #1b375e;
-    color: #1b375e;
-    border-radius: 7px;
-    outline: none;
-    font-size: 17px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.mainModal__form-item-textarea {
-    height: 100px;
-    resize: none;
-}
-
-.mainModal__form-button {
-    padding: 10px;
-    margin-left: auto;
-    color: #1b375e;
-    border: 1px solid #1b375e;
-    border-radius: 7px;
-    font-size: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-    outline: none;
-    cursor: pointer;
-}
-
-.main__projects {
-    display: grid;
-    margin-top: 25px;
-    padding: 0;
-    align-items: start;
-    grid-template-columns: 33% 33% 33%;
-}
-
-.main__projects-item {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid #1b375e;
-    border-radius: 10px;
-    color: #fff;
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-    list-style-type: none;
-}
-
-.main__projects-name {
-    font-weight: 500;
-    font-size: 23px;
-    word-wrap: break-word;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.main__projects-description {
-    font-size: 20px;
-    word-wrap: break-word;
-    width: 100%;
-    line-height: 25px;
-
 }
