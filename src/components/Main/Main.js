@@ -121,8 +121,27 @@ class Main extends Component {
                                         <ul className='main__projects-members'>
                                             {project.members.map(member => (
                                                 <li className='main__projects-members-item'>
-                                                    <div className='main__projects-members-name'>{member.name}</div>
-                                                    <div className='main__projects-members-email'>{member.email}</div>
+                                                    <div className='main__projects-members-item-main'>
+                                                        <div className='main__projects-members-name'>{member.name}</div>
+                                                        <div className='main__projects-members-email'>{member.email}</div>
+                                                    </div>
+                                                    <form action='/api/removeMember' method='POST'>
+                                                        <input 
+                                                            name='projectID'
+                                                            style={{ display: 'none' }}
+                                                            value={project._id}
+                                                        />
+                                                        <input 
+                                                            name='memberID'
+                                                            style={{ display: 'none' }}
+                                                            value={member._id}
+                                                        />
+                                                        <input
+                                                            className='main__projects-members-item-close'
+                                                            value='&#10006;'
+                                                            type='submit'
+                                                        />
+                                                    </form>
                                                 </li>
                                             ))}
                                         </ul>

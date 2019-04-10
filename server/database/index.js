@@ -12,5 +12,6 @@ router.post('/logout', ctrlLogin.isLogout);
 router.post('/createProject', ctrlProject.createProject);
 router.post('/getProjects', ctrlProject.getProjects);
 router.post('/addMember', ctrlProject.addMember);
+router.post('/removeMember', ctrlProject.removeMember);
 
 module.exports = router;

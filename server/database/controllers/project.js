@@ -67,3 +67,17 @@ module.exports.addMember = function(req, res) {
             }
         })
 }
+
+module.exports.removeMember = function(req, res) {
+    const Model = mongoose.model('project');
+
+    Model
+        .findOneAndUpdate(
+            { _id: req.body.projectID },
+            { $pull: { members: {
+                _id: req.body.memberID
+            } } })
+        .then(project => {
+            res.redirect('/main')
+        })
+}
