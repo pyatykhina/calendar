@@ -44,7 +44,16 @@ class Main extends Component {
             this.openModal();
         }
 
-        fetch('/api/getProjects', { method: 'GET' })
+        fetch('/api/getProjects', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+                JSON.stringify({
+                    userID: this.loadData('userID')
+                })
+        })
             .then( response => {
                 return response.status !== 200 ? Promise.reject(response) : response.json();
             })
@@ -109,13 +118,14 @@ class Main extends Component {
                                     <div className='main__projects-description'>{project.description}</div>
                                     <div className='main__projects-main'>
                                         <div className='main__projects-subtitle'>Members: </div>
-                                        {/* <ul className='main__projects-members'>
+                                        <ul className='main__projects-members'>
                                             {project.members.map(member => (
                                                 <li className='main__projects-members-item'>
                                                     <div className='main__projects-members-name'>{member.name}</div>
+                                                    <div className='main__projects-members-email'>{member.email}</div>
                                                 </li>
                                             ))}
-                                        </ul>*/}
+                                        </ul>
                                         <div className='main__projects-subtitle'>Add a member: </div>
                                         <div className='main__projects-msg'>{new URLSearchParams(this.props.location.search).get('proj-msg')}</div>
                                         <form action='/api/addMember' method='POST' className='main__projects-form'>

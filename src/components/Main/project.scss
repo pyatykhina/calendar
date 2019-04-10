@@ -17,7 +17,6 @@
     padding: 20px;
     margin: 20px;
     box-sizing: border-box;
-    list-style-type: none;
 }
 
 .main__projects-name {
@@ -48,6 +47,26 @@
 
 .main__projects-members {
     margin-bottom: 20px;
+    padding: 0;
+    margin-left: 15px;
+
+    & :last-child {
+        border-bottom: none;
+    }
+}
+
+.main__projects-members-item {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid #fff;
+    justify-content: space-between;
+}
+
+.main__projects-members-name {
+    font-weight: 500;
+    margin-right: 20px;
 }
 
 .main__projects-msg {

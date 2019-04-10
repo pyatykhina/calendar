@@ -2,30 +2,42 @@ const mongoose = require('mongoose');
 
 module.exports.getProjects = (req, res) => {
     const Model = mongoose.model('project');
-
-    Model.find().then(items => {
-        res.status(200).json( items );
-    });
+    
+    Model.find({ members: { $elemMatch: { _id: req.body.userID } } })
+        .then(items => {
+            res.status(200).json( items );
+        });
 };
 
 module.exports.createProject = function (req, res) {
     const Model = mongoose.model('project');
+    const User = mongoose.model('user');
 
-    let project = new Model({
-        name: req.body.name,
-        description: req.body.description,
-        members: [req.body.userID]
-    });
+    User
+        .findOne({ _id: req.body.userID })
+        .then(user => {
+            let member = {
+                name: user.name,
+                email: user.email,
+                _id: user.id
+            }
 
-    project.setColor();
+            let project = new Model({
+                name: req.body.name,
+                description: req.body.description,
+                members: [member]
+            })
 
-    project
-        .save()
-        .then(project => {
-            res.redirect('/main'); 
-        })
-        .catch(err => {
-            res.redirect('/main?modal-msg=Something went wrong. Refresh the page and try again'); 
+            project.setColor();
+
+            project
+                .save()
+                .then(project => {
+                    res.redirect('/main'); 
+                })
+                .catch(err => {
+                    res.redirect('/main?modal-msg=Something went wrong. Refresh the page and try again'); 
+                });
         });
 } 
 
@@ -43,7 +55,11 @@ module.exports.addMember = function(req, res) {
                     .findOne({ _id: req.body.projectID })
                     .update(
                         { _id: req.body.projectID },
-                        { $push: { members: user.id } }
+                        { $push: { members: {
+                            name: user.name,
+                            email: user.email,
+                            _id: user.id
+                        } } }
                     )
                     .then(project => {
                         res.redirect('/main')

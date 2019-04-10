@@ -10,7 +10,7 @@ router.post('/reg', ctrlLogin.isReg);
 router.post('/logout', ctrlLogin.isLogout);
 
 router.post('/createProject', ctrlProject.createProject);
-router.get('/getProjects', ctrlProject.getProjects);
+router.post('/getProjects', ctrlProject.getProjects);
 router.post('/addMember', ctrlProject.addMember);
 
 module.exports = router;
