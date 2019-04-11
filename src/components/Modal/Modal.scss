@@ -1,3 +1,6 @@
+@import  '../../mixins';
+@import  '../../variables';
+
 #modal {
     width: 100vw;
     min-height: 100vh;
@@ -6,5 +9,6 @@
     align-items: center;
     position: absolute;
     top: 0;
-    background-color: rgba(165, 198, 215, .85);
+    background-color: $blue-color;
+    opacity: .8;
 }

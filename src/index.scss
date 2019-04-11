@@ -1,7 +1,10 @@
+@import  './mixins';
+@import  './variables';
+
 html,
 body,
 #root {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 h1,
@@ -15,7 +18,14 @@ h6 {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -28,4 +38,44 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+main {
+  border: 1px solid $darkblue-color;
+  background-color: #fff;
+  min-height: 700px;
+}
+
+#wrapper{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $blue-color;
+  margin: 0;
+  padding: 25px 50px 25px 50px;
+  color: $darkblue-color;
+  box-sizing: border-box
+}
+
+.header {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;    
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 33px;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav__item {
+  margin-left: 25px;
+  cursor: pointer;
 }

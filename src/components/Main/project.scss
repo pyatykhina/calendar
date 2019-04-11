@@ -1,3 +1,6 @@
+@import  '../../mixins';
+@import  '../../variables';
+
 .main__projects {
     display: grid;
     margin-top: 25px;
@@ -11,7 +14,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    border: 1px solid #1b375e;
+    border: 1px solid $darkblue-color;
     border-radius: 10px;
     color: #f9fdff;
     padding: 20px;
@@ -24,7 +27,7 @@
     font-size: 23px;
     word-wrap: break-word;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .main__projects-description {
@@ -32,7 +35,7 @@
     word-wrap: break-word;
     width: 100%;
     line-height: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .main__projects-main {
@@ -61,9 +64,10 @@
     padding-bottom: 5px;
     justify-content: space-between;
     border-bottom: 1px solid #fff;
+    align-items: center;
 }
 
-.main__projects-members-item-main {
+.main__projects-members-item-user {
     display: flex;
     justify-content: space-between;
     margin-right: 20px;
@@ -85,7 +89,7 @@
 }
 
 .main__projects-msg {
-    margin-bottom: 10px;
+    @include msg();
 }
 
 .main__projects-form {
@@ -95,26 +99,13 @@
 }
 
 .main__projects-form-item {
-    border: 1px solid #1b375e;
-    color: #1b375e;
-    border-radius: 7px;
-    outline: none;
-    font-size: 17px;
-    padding: 10px;
     margin-right: 20px;
     width: 85%;
+    @include form-item();
 }
 
 .main__projects-form-button {
-    padding: 10px;
     margin-left: auto;
     width: 15%;
-    color: #1b375e;
-    border: 1px solid #1b375e;
-    border-radius: 7px;
-    font-size: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-    outline: none;
-    cursor: pointer;
+    @include button()
 }

@@ -1,3 +1,6 @@
+@import  '../../mixins';
+@import  '../../variables';
+
 .chat {
     display: flex;
     flex-direction: row;
@@ -6,11 +9,11 @@
 
 .chat__left {
     width: 30%;
-    border-right: 1px solid #1b375e;
+    border-right: 1px solid $darkblue-color;
 }
 
 .chat__left-item{
-    border-bottom: 1px solid #1b375e;
+    border-bottom: 1px solid $darkblue-color;
 }
 
 .chat__right {
@@ -30,7 +33,7 @@
 }
 
 .chat__right-messages-message {
-    border: 1px solid #1b375e;
+    border: 1px solid $darkblue-color;
     border-radius: 7px;
     font-size: 20px;
     padding: 5px;
@@ -42,9 +45,5 @@
 
 .chat__right-input {
     margin: auto 0 0 0;
-    border: 1px solid #1b375e;
-    border-radius: 7px;
-    outline: none;
-    font-size: 20px;
-    padding: 10px;
+    @include form-item();
 }

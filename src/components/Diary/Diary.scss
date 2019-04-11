@@ -1,50 +1,53 @@
-.calendar {
-    grid-area: cd;
-    display: grid;
-    grid-template-areas: 
-        "... cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg"
-        "cdt cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg cdg";
-}
+@import  '../../mixins';
+@import  '../../variables';
 
-.calendar__time {
-    grid-area: cdt;
+.diary {
     display: flex;
-    flex-direction: column;
-    min-width: 30px;
-}
-
-.calendar__time-item {
-    height: 51px;
-    text-align: right;
-}
-
-.calendar__time-item-text {
-    right: 2px;
-    font-size: 10px;
-    position: relative;
-    top: -10px;
-}
-
-.calendar__grid {
-    grid-area: cdg;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.calendar__grid-column {
-    border-left: 1px solid #1b375e;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
-.calendar__grid-title {
-    margin: 0 auto;
-    font-size: 20px;
-    font-weight: 500;
+.diary__time {
+    display: flex;
+    flex-direction: column;
+    min-width: 3%;
+    margin-top: 25px;
 }
 
-.calendar__grid-item {
-    border-top: 1px solid #1b375e;
-    height: 50px;
+.diary__time-item-text {
+    height: 51px;
+    text-align: right;
+    right: 2px;
+    font-size: 10px;
+    position: relative;
+    top: -5px;
+}
+
+.diary__grid {
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.diary__grid-column {
+    border-left: 1px solid $darkblue-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.diary__grid-title {
+    font-size: 20px;
+    font-weight: 500;
+    height: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.diary__grid-tasks {
+    background: linear-gradient($darkblue-color,transparent 1px);
+    background-size: 51px 51px;
+    width: 100%;
+    height: 100%;
 }

@@ -35,41 +35,39 @@ class Chat extends Component {
 
     render() {
         return (
-            <div className='wrapper'> 
-                <div className='content'>
-                    <header className='header'>
-                        <h1 className='header__logo'>Calendar</h1>
+            <div id='wrapper'> 
+                <header className='header'>
+                    <h1 className='header__logo'>Calendar</h1>
                         
-                        <nav className='nav'>
-                            <Link to='/main'><img src={mainIcon} alt='main' className='nav__item' /></Link>
-                            <Link to='/diary'><img src={diaryIcon} alt='diary' className='nav__item' /></Link>
-                            <Link to='/chat'><img src={chatIcon} alt='chat' className='nav__item' /></Link>
-                        </nav>
-                    </header>
+                    <nav className='nav'>
+                        <Link to='/main'><img src={mainIcon} alt='main' className='nav__item' /></Link>
+                        <Link to='/diary'><img src={diaryIcon} alt='diary' className='nav__item' /></Link>
+                        <Link to='/chat'><img src={chatIcon} alt='chat' className='nav__item' /></Link>
+                    </nav>
+                </header>
                 
-                    <div className='chat main-content'>
-                        <div className='chat__left'></div>
-                        <div className='chat__right'>
-                            <div className='chat__right-messages'>
-                                {this.state.messages.map((message, key) => {
-                                    return <span key={key} className="chat__right-messages-message">{message.text}</span>;
-                                })}
-                                <div
-                                    ref={e => {
-                                        this.messages = e;
-                                    }}
-                                />
-                            </div>
-                            <input 
-                                placeholder='Enter your message'
-                                className = 'chat__right-input'
-                                value={this.state.messageInput} 
-                                onChange={this.changeInputMessage}
-                                onKeyPress={this.sendMessageOnEnter}
+                <main className='chat'>
+                    <div className='chat__left'></div>
+                    <div className='chat__right'>
+                        <ul className='chat__right-messages'>
+                            {this.state.messages.map((message, key) => {
+                                return <li key={key} className="chat__right-messages-message">{message.text}</li>;
+                            })}
+                            <div
+                                ref={e => {
+                                    this.messages = e;
+                                }}
                             />
-                        </div>
+                        </ul>
+                        <input 
+                            placeholder='Enter your message'
+                            className = 'chat__right-input'
+                            value={this.state.messageInput} 
+                            onChange={this.changeInputMessage}
+                            onKeyPress={this.sendMessageOnEnter}
+                        />
                     </div>
-                </div>
+                </main>
             </div>
         );
     }

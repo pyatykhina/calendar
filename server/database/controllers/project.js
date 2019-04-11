@@ -78,6 +78,6 @@ module.exports.removeMember = function(req, res) {
                 _id: req.body.memberID
             } } })
         .then(project => {
-            res.redirect('/main')
+            res.status(200).json({ status: 'deleted' });
         })
 }

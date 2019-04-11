@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './Router.scss';
 import Main from '../Main';
 import Diary from '../Diary';
 import Chat from '../Chat';
