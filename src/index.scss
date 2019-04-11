@@ -61,21 +61,21 @@ main {
   display: flex;
   justify-content: space-between;    
   align-items: center;
-}
 
-.header__logo {
-  font-size: 33px;
-  font-weight: 700;
+  &__logo {
+    font-size: 33px;
+    font-weight: 700;
+  }
+  
 }
-
 .nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-}
 
-.nav__item {
-  margin-left: 25px;
-  cursor: pointer;
+  &__item {
+    margin-left: 25px;
+    cursor: pointer;
+  }
 }

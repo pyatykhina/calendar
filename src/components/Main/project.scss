@@ -8,104 +8,104 @@
     align-items: start;
     grid-auto-flow: dense;
     grid-template-columns: 50% 50%;
-}
 
-.main__projects-item {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid $darkblue-color;
-    border-radius: 10px;
-    color: #f9fdff;
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-}
-
-.main__projects-name {
-    font-weight: 500;
-    font-size: 23px;
-    word-wrap: break-word;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.main__projects-description {
-    font-size: 20px;
-    word-wrap: break-word;
-    width: 100%;
-    line-height: 25px;
-    margin-bottom: 10px;
-}
-
-.main__projects-main {
-    width: 100%;
-}
-
-.main__projects-subtitle {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.main__projects-members {
-    margin-bottom: 20px;
-    padding: 0;
-    margin-left: 15px;
-
-    & :last-child {
-        border-bottom: none;
+    &-item {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid $darkblue-color;
+        border-radius: 10px;
+        color: #f9fdff;
+        padding: 20px;
+        margin: 20px;
+        box-sizing: border-box;
     }
-}
-
-.main__projects-members-item {
-    display: flex;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    justify-content: space-between;
-    border-bottom: 1px solid #fff;
-    align-items: center;
-}
-
-.main__projects-members-item-user {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 20px;
-    font-size: 20px;
-    width: 85%;
-}
-
-.main__projects-members-item-close {
-    color: #fff;
-    border: none;
-    outline: none;
-    font-size: 25px;
-    background-color: transparent;
-}
-
-.main__projects-members-name {
-    font-weight: 500;
-    margin-right: 20px;
-}
-
-.main__projects-msg {
-    @include msg();
-}
-
-.main__projects-form {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.main__projects-form-item {
-    margin-right: 20px;
-    width: 85%;
-    @include form-item();
-}
-
-.main__projects-form-button {
-    margin-left: auto;
-    width: 15%;
-    @include button()
+    
+    &-name {
+        font-weight: 500;
+        font-size: 23px;
+        word-wrap: break-word;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    &-description {
+        font-size: 20px;
+        word-wrap: break-word;
+        width: 100%;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
+    
+    &-main {
+        width: 100%;
+    }
+    
+    &-subtitle {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    
+    &-members {
+        margin-bottom: 20px;
+        padding: 0;
+        margin-left: 15px;
+    
+        & :last-child {
+            border-bottom: none;
+        }
+    
+        &-item {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            justify-content: space-between;
+            border-bottom: 1px solid #fff;
+            align-items: center;
+        
+            &-user {
+                display: flex;
+                justify-content: space-between;
+                margin-right: 20px;
+                font-size: 20px;
+                width: 85%;
+            
+                &-name {
+                    font-weight: 500;
+                    margin-right: 20px;
+                }
+            }
+            
+            &-close {
+                color: #fff;
+                border: none;
+                outline: none;
+                font-size: 25px;
+                background-color: transparent;
+            }
+        }
+    }
+    
+    &-msg {
+        @include msg();
+    }
+    
+    &-form {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    
+        &-item {
+            margin-right: 20px;
+            width: 85%;
+            @include form-item();
+        }
+        
+        &-button {
+            margin-left: auto;
+            width: 15%;
+            @include button()
+        }
+    }
 }

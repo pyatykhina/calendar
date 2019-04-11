@@ -6,52 +6,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.login__form {
-    @include form(70px);
-}
+    &__form {
+        @include form(70px);
 
-.login__form-title {
-    margin-bottom: 10px;
-}
+        &-title {
+            margin-bottom: 10px;
+    
+            &-item {
+                display: inline-block;
+                font-size: 30px;
+                font-weight: 500;
+                color: $blue-color;
+                cursor: pointer;
+                border: none;
+                outline: none;
+            }
+        
+            &-item-active {
+                @extend .login__form-title-item;
+                color: $darkblue-color;
+            }
+        
+            &-slash {
+                @extend .login__form-title-item;
+                cursor: default;
+            }
+        }
+    }
 
-.login__form-title-item {
-    display: inline-block;
-    font-size: 30px;
-    font-weight: 500;
-    color: $blue-color;
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
+    &__msg {
+        @include msg();
+    }
 
-.login__form-title-item-active {
-    @extend .login__form-title-item;
-    color: $darkblue-color;
-}
+    &__form-main {
+        display: flex;
+        flex-direction: column;   
+        width: 100%;
 
-.login__form-title-slash {
-    @extend .login__form-title-item;
-    cursor: default;
-}
-
-.login__msg {
-    @include msg();
-}
-
-.login__form-main {
-    display: flex;
-    flex-direction: column;   
-    width: 100%;
-}
-
-.login__form-item {
-    @include form-item();
-    margin-bottom: 10px;
-}
-
-.login__form-button {
-    margin-left: auto;
-    @include button();
+        &-item {
+            @include form-item();
+            margin-bottom: 10px;
+        }
+    
+        &-button {
+            margin-left: auto;
+            @include button();
+        }
+    }
 }

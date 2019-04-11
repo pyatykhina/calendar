@@ -119,8 +119,8 @@ class Main extends Component {
                                         {project.members.map(member => (
                                             <li className='main__projects-members-item'>
                                                 <div className='main__projects-members-item-user'>
-                                                    <div className='main__projects-members-name'>{member.name}</div>
-                                                    <div className='main__projects-members-email'>{member.email}</div>
+                                                    <div className='main__projects-members-item-user-name'>{member.name}</div>
+                                                    <div className='main__projects-members-item-user-email'>{member.email}</div>
                                                 </div>
                                                 <button
                                                     className='main__projects-members-item-close'

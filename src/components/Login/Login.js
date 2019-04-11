@@ -76,7 +76,7 @@ class Login extends Component {
                             <input 
                                 name='email'
                                 type='text' 
-                                className='login__form-item' 
+                                className='login__form-main-item' 
                                 placeholder='Email' 
                                 value={this.state.email} 
                                 onChange={(e) => this.setState({ email: e.target.value })} 
@@ -84,14 +84,14 @@ class Login extends Component {
                             <input 
                                 name='password'
                                 type='password' 
-                                className='login__form-item' 
+                                className='login__form-main-item' 
                                 placeholder='Password' 
                                 value={this.state.password} 
                                 onChange={(e) => this.setState({ password: e.target.value })} 
                             />
                             <input 
                                 type='submit' 
-                                className='login__form-button' 
+                                className='login__form-main-button' 
                                 value='Log in' 
                             />
                         </form>
@@ -125,7 +125,7 @@ class Login extends Component {
                             <input 
                                 name='name'
                                 type='text' 
-                                className='login__form-item' 
+                                className='login__form-main-item' 
                                 placeholder='Name' 
                                 value={this.state.name} 
                                 onChange={(e) => this.setState({ name: e.target.value })} 
@@ -133,7 +133,7 @@ class Login extends Component {
                             <input 
                                 name='email'
                                 type='text' 
-                                className='login__form-item' 
+                                className='login__form-main-item' 
                                 placeholder='Email' 
                                 value={this.state.email} 
                                 onChange={(e) => this.setState({ email: e.target.value })} 
@@ -141,14 +141,14 @@ class Login extends Component {
                             <input 
                                 name='password'
                                 type='password' 
-                                className='login__form-item' 
+                                className='login__form-main-item' 
                                 placeholder='Password' 
                                 value={this.state.password} 
                                 onChange={(e) => this.setState({ password: e.target.value })} 
                             />
                             <input 
                                 type='submit' 
-                                className='login__form-button' 
+                                className='login__form-main-button' 
                                 value='Register' 
                             />
                         </form>
