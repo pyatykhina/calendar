@@ -1,5 +1,14 @@
+@import './addModal';
+
 @import  '../../mixins';
 @import  '../../variables';
+
+.nav__item-add {
+    margin-right: -6px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
 
 .diary {
     display: flex;
@@ -26,6 +35,7 @@
         width: 97%;
         display: flex;
         justify-content: space-between;
+        overflow: hidden;
 
         &-column {
             border-left: 1px solid $darkblue-color;
@@ -33,7 +43,9 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            width: 100%;
+            flex-basis: 14.21%;
+            flex-grow: 0;
+            flex-shrink: 0;
         }
     
         &-title {

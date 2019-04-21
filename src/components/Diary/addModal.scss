@@ -1,7 +1,7 @@
 @import  '../../mixins';
 @import  '../../variables';
 
-.mainModal {
+.addModal {
     @include form(40px);
     color: $darkblue-color;
     margin: auto;
@@ -38,9 +38,29 @@
         flex-direction: column;   
         width: 100%;
     
-        &-item{
+        &-item {
             @include form-item();
             margin-bottom: 10px;
+            -webkit-appearance: none;
+        }
+
+        &-time {
+            display: flex;
+            align-items: center;    
+            margin-bottom: 10px;
+
+            &-item {
+                @include form-item();
+                padding: 7px;
+                width: 250px;
+            }
+
+            & :first-child{
+                margin-right: 15px;
+            }
+            & :last-child{
+                margin-left: 15px;
+            }
         }
         
         &-item-textarea {
