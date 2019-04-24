@@ -18,7 +18,7 @@ const taskSchema = new Schema ({
         unique: false
     },
     project: {
-        type: String,
+        type: Object,
         required: true,
         unique: false
     }

@@ -14,12 +14,13 @@ class Diary extends Component {
     state = {
         isShowModal: false,
         title: '',
-        timeStart: '',
-        timeEnd: '',
+        timeStart: moment(),
+        timeEnd: moment(),
         project: '',
         projects: [],
         tasks: [],
-        days: []
+        days: [],
+        numberOfWeek: ''
     }
 
     loadData = (key) => {
@@ -75,6 +76,28 @@ class Diary extends Component {
             this.state.days.push( moment(m1) )
             m1 = moment(m1).add('day', 1);
         }
+
+        this.setState({ numberOfWeek: this.state.days[182].format('W') })
+    }
+
+    slideToLeft = () => {
+        this.setState({ numberOfWeek: this.state.numberOfWeek-1 })
+
+        var gridColumns = document.getElementsByClassName('diary__grid-column');
+
+        for (let gridColumn of gridColumns) {
+            gridColumn.style.right = `calc(${gridColumn.style.right} - 100%)`;
+        }
+    }
+
+    slideToRight = () => {
+        this.setState({ numberOfWeek: this.state.numberOfWeek+1 })
+
+        var gridColumns = document.getElementsByClassName('diary__grid-column');
+
+        for (let gridColumn of gridColumns) {
+            gridColumn.style.right = `calc(${gridColumn.style.right} + 100%)`;
+        }
     }
 
     componentDidMount() {
@@ -87,6 +110,20 @@ class Diary extends Component {
             <div id='wrapper'> 
                 <header className='header'>
                     <h1 className='header__logo'>Calendar</h1>
+
+                    <div className="header__buttons">
+                        <button
+                            className="header__buttons-button"
+                            onClick={this.slideToLeft}
+                        >&larr;</button>
+                        <h2 className="header__buttons-title">
+                            Week {this.state.numberOfWeek}
+                        </h2>
+                        <button
+                            className="header__buttons-button"
+                            onClick={this.slideToRight}
+                        >&rarr;</button>
+                    </div>
                         
                     <nav className='nav'>
                         <button 
@@ -131,11 +168,29 @@ class Diary extends Component {
                     
                     <ul className='diary__grid'>
                         {this.state.days.map( day => (
-                            <li className='diary__grid-column'>
-                                <div className='diary__grid-title'>
+                            <li className='diary__grid-column' style={{ right: '2600%' }}>
+                                <h3 className='diary__grid-title'>
                                     {`${day.format('MMM')} ${day.format('DD')},    ${day.format('ddd')}`}
+                                </h3>
+                                <div className='diary__grid-tasks'>
+                                    {this.state.tasks.map( task => (
+                                        (task.timeStart.split('T')[0] === day.format('YYYY-MM-DD')) 
+                                            && <div 
+                                                className='diary__grid-tasks-task' 
+                                                style={{ 
+                                                    backgroundColor: task.project.color,
+                                                    top: `${task.timeStart.split('T')[1].split(':')[0] * 51 + 
+                                                            task.timeStart.split('T')[1].split(':')[1] / 60 * 51}px`,
+                                                    height: `${task.timeEnd.split('T')[1].split(':')[0] * 51 - 
+                                                               task.timeStart.split('T')[1].split(':')[0] * 51 + 
+                                                               task.timeEnd.split('T')[1].split(':')[1] / 60 * 51 - 
+                                                               task.timeStart.split('T')[1].split(':')[1] / 60 * 51}px`
+                                                }}
+                                            >
+                                                {task.title}
+                                            </div>
+                                    ))}
                                 </div>
-                                <div className='diary__grid-tasks'></div>
                             </li>
                         ))}
                     </ul>
@@ -158,7 +213,7 @@ class Diary extends Component {
                         >&#10006;</button>
                     </header>
                     <div className='addModal__msg'>{new URLSearchParams(this.props.location.search).get('modal-msg')}</div>
-                    <form action='/api/createTask' method='POST' className='addModal__form'>
+                    <form action='/api/addTask' method='POST' className='addModal__form'>
                         <input 
                             name='title'
                             type='text' 
@@ -172,16 +227,16 @@ class Diary extends Component {
                                 name='timeStart'
                                 type='datetime-local' 
                                 className='addModal__form-time-item' 
-                                value={this.state.timeStart} 
-                                onChange={(e) => this.setState({ timeStart: e.target.value })} 
+                                value={this.state.timeStart.format('YYYY-MM-DDTHH:mm')} 
+                                onChange={(e) => this.setState({ timeStart: moment(e.target.value) })} 
                             />
                             <b>—</b>
                             <input 
                                 name='timeEnd'
                                 type='datetime-local' 
                                 className='addModal__form-time-item' 
-                                value={this.state.timeEnd} 
-                                onChange={(e) => this.setState({ timeEnd: e.target.value })} 
+                                value={this.state.timeEnd.format('YYYY-MM-DDTHH:mm')} 
+                                onChange={(e) => this.setState({ timeEnd: moment(e.target.value) })} 
                             />
                         </div>
                         <select 
