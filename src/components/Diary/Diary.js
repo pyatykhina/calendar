@@ -100,6 +100,16 @@ class Diary extends Component {
         }
     }
 
+    slideToToday = () => {
+        this.setState({ numberOfWeek: this.state.days[182].format('W') })
+
+        var gridColumns = document.getElementsByClassName('diary__grid-column');
+
+        for (let gridColumn of gridColumns) {
+            gridColumn.style.right = '2600%';
+        }
+    }
+
     componentDidMount() {
         this.fetchProjects();
         this.getDays();
@@ -112,6 +122,11 @@ class Diary extends Component {
                     <h1 className='header__logo'><Link to='/main' className='header__logo-link'>Calendar</Link></h1>
 
                     <div className="header__buttons">
+                        <button 
+                            className='header__buttons-today'
+                            onClick={this.slideToToday}
+                        >Today
+                        </button>
                         <button
                             className="header__buttons-button"
                             onClick={this.slideToLeft}
