@@ -194,9 +194,20 @@ class Diary extends Component {
                             </li>
                         ))}
                     </ul>
-                
-                    {this.state.isShowModal && this.renderModal()}
                 </main>
+
+                <footer className='footer'>
+                    <nav className='footer__nav'>
+                        <Link to='/main' className='footer__nav-item'><div>Main</div></Link>
+                        <Link to='/diary' className='footer__nav-item'><div>Diary</div></Link>
+                        <Link to='/chat' className='footer__nav-item'><div>Chat</div></Link>
+                    </nav>
+                    <address className='footer__address'>
+                        <a href='mailto:calendar_2019@inbox.ru' className='footer__address-mail'>Contact us</a>
+                    </address>
+                </footer>
+                
+                {this.state.isShowModal && this.renderModal()}
             </div>
         );
     }

@@ -48,6 +48,7 @@ main {
 
 Link {
   cursor: pointer;
+  text-decoration: none;
 }
 
 #wrapper{
@@ -71,12 +72,11 @@ Link {
     font-weight: 700;
 
     &-link {
-      text-decoration: none;
       color: $darkblue-color;
     }
   }
-  
 }
+
 .nav {
   display: flex;
   flex-direction: row;
@@ -85,5 +85,37 @@ Link {
 
   &__item {
     margin-left: 25px;
+  }
+}
+
+.footer {
+  width: 100%;
+  border-top: 1px solid #1b375e;
+  padding: 20px 50px 0 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 20px;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+
+    &-item {
+      cursor: pointer;
+      color: $darkblue-color;
+    }
+  }
+
+  &__address {
+    &-mail {
+      @include button();
+      text-decoration: none;
+      background-color: #fff;
+      font-style: initial;
+    }
   }
 }

@@ -106,6 +106,7 @@ class Main extends Component {
                         <Link to='/chat'><img src={chatIcon} alt='chat' className='nav__item' /></Link>
                     </nav>
                 </header>    
+                
                 <div className='main'>
                     <ul className='main__projects'>
                         {this.state.projects.map(project => (
@@ -155,6 +156,17 @@ class Main extends Component {
                         ))}
                     </ul>
                 </div>
+
+                <footer className='footer'>
+                    <nav className='footer__nav'>
+                        <Link to='/main' className='footer__nav-item'><div>Main</div></Link>
+                        <Link to='/diary' className='footer__nav-item'><div>Diary</div></Link>
+                        <Link to='/chat' className='footer__nav-item'><div>Chat</div></Link>
+                    </nav>
+                    <address className='footer__address'>
+                        <a href='mailto:calendar_2019@inbox.ru' className='footer__address-mail'>Contact us</a>
+                    </address>
+                </footer>
 
                 {this.state.isShowModal && this.renderModal()}
             </div>
