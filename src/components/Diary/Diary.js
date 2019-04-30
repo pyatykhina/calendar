@@ -109,7 +109,7 @@ class Diary extends Component {
         return (
             <div id='wrapper'> 
                 <header className='header'>
-                    <h1 className='header__logo'>Calendar</h1>
+                    <h1 className='header__logo'><Link to='/main' className='header__logo-link'>Calendar</Link></h1>
 
                     <div className="header__buttons">
                         <button
