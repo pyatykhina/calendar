@@ -15,8 +15,7 @@ class Main extends Component {
         isShowModal: false,
         name: '',
         description: '',
-        projects: [],
-        memberHasBeenRemoved: false
+        projects: []
     };
 
     saveData = (key, data) => {
@@ -110,10 +109,12 @@ class Main extends Component {
                 <div className='main'>
                     <ul className='main__projects'>
                         {this.state.projects.map(project => (
-                            <li className='main__projects-item' style={{ backgroundColor: project.color }}>
-                                <h2 className='main__projects-name'>{project.name}</h2>
-                                <p className='main__projects-description'>{project.description}</p>
+                            <li className='main__projects-item'>
+                                <header className='main__projects-header' style={{ backgroundColor: project.color }}>
+                                    <h2 className='main__projects-header-name'>{project.name}</h2>
+                                </header>
                                 <div className='main__projects-main'>
+                                    <p className='main__projects-description'>{project.description}</p>
                                     <h3 className='main__projects-subtitle'>Members: </h3>
                                     <ul className='main__projects-members'>
                                         {project.members.map(member => (

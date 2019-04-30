@@ -81,7 +81,7 @@ class Diary extends Component {
     }
 
     slideToLeft = () => {
-        this.setState({ numberOfWeek: this.state.numberOfWeek-1 })
+        this.setState({ numberOfWeek: this.state.numberOfWeek - 1 })
 
         var gridColumns = document.getElementsByClassName('diary__grid-column');
 
@@ -91,7 +91,7 @@ class Diary extends Component {
     }
 
     slideToRight = () => {
-        this.setState({ numberOfWeek: this.state.numberOfWeek+1 })
+        this.setState({ numberOfWeek: this.state.numberOfWeek - (-1) })
 
         var gridColumns = document.getElementsByClassName('diary__grid-column');
 
