@@ -100,6 +100,26 @@
                 padding: 8px;
                 box-sizing: border-box;
                 font-size: 19px;
+
+                &-header {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+                
+                    &-close {
+                        border: none;
+                        outline: none;
+                        color: #fff;
+                        font-size: 20px;
+                        background-color: transparent;
+                    }
+                }
+
+                &-time {
+                    color: #fff;
+                    font-size: 17px;
+                }
             }
         }
     }

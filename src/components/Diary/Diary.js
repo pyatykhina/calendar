@@ -110,6 +110,22 @@ class Diary extends Component {
         }
     }
 
+    removeTask = (taskID) => {
+        fetch('/api/removeTask', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+                JSON.stringify({
+                    taskID: taskID
+                })
+        })
+            .then( response => {
+                return response.status === 200 && this.fetchProjects();
+            })
+    }
+
     componentDidMount() {
         this.fetchProjects();
         this.getDays();
@@ -202,7 +218,16 @@ class Diary extends Component {
                                                                task.timeStart.split('T')[1].split(':')[1] / 60 * 51}px`
                                                 }}
                                             >
-                                                {task.title}
+                                                <div className='diary__grid-tasks-task-header'>
+                                                    {task.title}
+                                                    <button 
+                                                        className='diary__grid-tasks-task-header-close'
+                                                        onClick={() => this.removeTask(task._id)}
+                                                    >&#10006;</button>
+                                                </div>
+                                                <div className='diary__grid-tasks-task-time'>
+                                                    {task.timeStart.split('T')[1]} - {task.timeEnd.split('T')[1]}
+                                                </div>
                                             </div>
                                     ))}
                                 </div>

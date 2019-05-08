@@ -40,3 +40,14 @@ module.exports.addTask = function (req, res, next) {
 
         })
 } 
+
+module.exports.removeTask = function(req, res) {
+    const Model = mongoose.model('task');
+
+    Model
+        .findOneAndDelete(
+            { _id: req.body.taskID })
+        .then(project => {
+            res.status(200).json({ status: 'deleted' });
+        })
+}

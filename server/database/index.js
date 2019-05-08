@@ -17,5 +17,6 @@ router.post('/removeMember', ctrlProject.removeMember);
 
 router.post('/addTask', ctrlTask.addTask);
 router.post('/getTasks', ctrlTask.getTasks);
+router.post('/removeTask', ctrlTask.removeTask);
 
 module.exports = router;
